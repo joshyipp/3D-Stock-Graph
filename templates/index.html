@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Stupid Form without CSS </h1>
+<form action="/homes/"method="post">
+
+<input type="radio" name="time" value="weekly" checked>
+ <label for="weekly">Weekly</label><br>
+<input type="radio" name="time" value="daily">
+ <label for="daily">Daily</label><br><br>
+ 
+  <label  for="year">Choose Year:</label><br>
+<input type="number" id="year" name="year" min="2006" step="1" value='2021'/><br><br>
+  
+ <label for="stock0">Type In Stock Abbreviations:</label><br>
+<input type="text" name="stock0" maxlength = "4" value="" placeholder="Ex: AAPL"><br>
+ <input type="text" name="stock1" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+  <input type="text" name="stock2" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+   <input type="text" name="stock3" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+    <input type="text" name="stock4" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+	 <input type="text" name="stock5" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+	  <input type="text" name="stock6" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+	   <input type="text" name="stock7" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+	    <input type="text" name="stock8" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+		 <input type="text" name="stock9" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+		  <input type="text" name="stock10" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+		   <input type="text" name="stock11" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+		    <input type="text" name="stock12" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+			 <input type="text" name="stock13" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+			  <input type="text" name="stock14" maxlength = "4"value="" placeholder="Ex: AAPL"><br>
+
+
+ <!--
+  <div id="add_to_me"></div>
+ <input type="button" value="Add" onclick="addCode(); "/>	style="visibility:hidden"-->
+ <br>
+ <input type="submit" name="submit" value="Submit" >
+</form>
+
+
+
+
+
+
+
+</body>
+</html>
+<script>//put script at bottom to make sure javascript is ran after everything is loaded
+function myFunction() {
+var counter=new Date().getFullYear().toString();
+document.getElementById("year").placeholder = counter;
+document.getElementById("year").max= parseInt(counter);
+}
+window.onload=myFunction();//loads automatically no need for call
+   
+</script>
+<script>
+counter=1;
+//code is if you want to add more than 15 stocks to the list(need to reimplement googlesheet code
+//for this to work...
+ function addCode() {
+			var strcount= counter.toString();
+            document.getElementById("add_to_me").innerHTML += 
+			'<input type="text" name="stock' + strcount+'"value="" placeholder="Ex: AAPL"><br>';
+			counter++;
+	  }
+	 <!--function allstocks()for (let i=0; i<counter;i++)-->
+	function allstocks(){
+	
+	for (let i=0; i<15;i++)
+	{
+	stockid="stock"+parseInt(i).toString();
+	document.getElementById("stocklist").innerHTML += document.getElementById("stock0").value.toString()+', ';
+	}
+	}
+	  
+	  
+</script>

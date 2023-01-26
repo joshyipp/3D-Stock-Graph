@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+counter=1;
+ function addCode() {
+			var strcount= counter.toString();
+            document.getElementById("add_to_me").innerHTML += 
+			'<input type="text" name="stock' + strcount+'"value="" placeholder="Ex: AAPL"><br>';
+			counter++;
+	  }
+</script>
+<h1> Stupid Form without CSS </h1>
+<form action="">
+
+<input type="radio" name="time" value="weekly">
+ <label for="time">Weekly</label><br>
+<input type="radio" name="time" value="daily">
+ <label for="daily">Daily</label><br><br>
+ 
+  <label  for="year">Choose Year:</label><br>
+<input type="number" id="year"  min="2006" step="1" /><br><br>
+  
+ <label for="stock0">Stock Abbreviations:</label><br>
+ <input type="text" name="stock0" value="" placeholder="Ex: AAPL"><br>
+ <div id="add_to_me"></div>
+ <input type="button" value="Add" onclick="addCode()"/>
+ <br>
+
+ <input type="submit" value="Submit" >
+</form>
+
+
+
+
+
+
+
+</body>
+</html>
+<script>//put script at bottom to make sure javascript is ran after everything is loaded
+function myFunction() {
+var counter=new Date().getFullYear().toString();
+document.getElementById("year").placeholder = counter;
+document.getElementById("year").max= parseInt(counter);
+}
+window.onload=myFunction();//loads automatically no need for call
+   
+</script>
